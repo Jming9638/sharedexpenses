@@ -15,12 +15,12 @@ def summary_res(total, result):
             amount = result.loc[j,i]
             if amount > 0:
                 with col[0]:
-                    st.write(i)
+                    st.write("**{}**".format(i))
                 with col[1]:
                     st.write("="*15)
                 with col[2]:
-                    st.write("RM {:.2f}".format(amount))
+                    st.write("**RM {:.2f}**".format(amount))
                 with col[3]:
                     st.write("="*14+">")
                 with col[4]:
-                    st.write(j)
+                    st.write("**{}**".format(j))
