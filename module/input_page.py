@@ -74,7 +74,16 @@ def input_function():
             
         with col2[2]:
             ph33 = st.empty()
-            val = ph33.text_input('Replace with?')
+            if cn == 'paid':
+                val = ph33.selectbox('Replace with:', [n for n in name_list if len(name_list)>=1 and n!="Select All" and n!="-Select name-"])
+            elif cn == 'for':
+                val = ph33.multiselect('Replace with:', [x for x in name_list if len(name_list)>2 and x!="-Select name-"])
+                if val == ['Select All']:
+                    val = ', '.join([str(elem) for elem in name_list if elem!="-Select name-" and elem!="Select All"])
+                else:
+                    val = ', '.join([str(elem) for elem in val])
+            else:
+                val = ph33.text_input('Replace with:')
         
         modify_btn = st.button("Update value")
         if modify_btn and cn != '-Select column-':
@@ -93,3 +102,12 @@ def input_function():
         # st.write(result.style.format("{:.2f}"))
         
         summary_res(total, result)
+        
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        st.write("")
+        bottom_col = st.columns([3, 5, 3])
+        with bottom_col[1]:
+            st.write("---------------End of the page---------------")
