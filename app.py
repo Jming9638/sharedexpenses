@@ -17,7 +17,7 @@ def run():
     st.set_page_config(page_title="Shared Expense Calculator", page_icon=":airplane:", layout='wide')
     st.title("💰 Shared Expenses Calculator")
     
-    st_autorefresh(interval=30 * 1000, limit=1000)
+    st_autorefresh(interval=10 * 1000, limit=360)
     input_function()
 
 if __name__ == "__main__":
