@@ -11,7 +11,7 @@ def summary_res(total, result):
     st.write('')
     
     max_name = len(max(result.columns, key=len))
-    name_space = max_name/18
+    name_space = round(max_name/18, 2) - 0.01
     col = st.columns([name_space, 0.7, 0.4, 0.7, name_space, 1.8])
     for i in result.columns:
         for j in result.index:
