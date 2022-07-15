@@ -9,7 +9,10 @@ def summary_res(total, result):
         st.write("")
         st.markdown("Total spend: **RM {:.2f}**".format(total))
     st.write('')
-    col = st.columns([0.35, 0.65, 0.35, 0.65, 0.5, 1.5])
+    
+    max_name = len(max(result.columns, key=len))
+    name_space = max_name/20
+    col = st.columns([name_space, 0.7, 0.4, 0.7, name_space, 1.8])
     for i in result.columns:
         for j in result.index:
             amount = result.loc[j,i]
